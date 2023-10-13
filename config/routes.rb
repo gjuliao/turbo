@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   root "welcome#index"
   resources :posts
   get '/search' => 'welcome#search'
+
+  resources :welcome
 end

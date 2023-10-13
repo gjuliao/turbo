@@ -2,8 +2,13 @@
 <div class="row">
     <div class="col-4">
         <%= form_with url: root_path do |form| %>
-            <%= form.text_field :title, class: 'form-control', data: { controller: :search } %>
+            <%= form.text_field :query, class: 'form-control', data: { controller: :search } %>
             <%= form.submit "Search" %>
         <% end %>
+        <%= render "welcome/results" %>
     </div>
+</div>
+
+<div class="col-4">
+    <%= turbo_frame_tag :show_content %>
 </div>
