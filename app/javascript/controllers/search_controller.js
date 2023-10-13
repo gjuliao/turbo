@@ -5,12 +5,11 @@ import { Turbo } from "@hotwired/turbo-rails"
 export default class extends Controller {
   connect() {
     this.element.setAttribute('data-action', 'keyup->search#search')
-    // console.log('hello')
   }
 
   search(){
     let params = new URLSearchParams()
-    params.append("title", this.element.value)
+    params.append("query", this.element.value)
 
     fetch(`/?${params}`, {
       method: "GET",
