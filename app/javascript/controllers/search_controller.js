@@ -5,6 +5,7 @@ import { Turbo } from "@hotwired/turbo-rails"
 export default class extends Controller {
   connect() {
     this.element.setAttribute('data-action', 'keyup->search#search')
+    // console.log('hello')
   }
 
   search(){
@@ -19,7 +20,6 @@ export default class extends Controller {
     })
     .then(r => r.text())
     .then(html => Turbo.renderStreamMessage(html))
-  }
-
+   }
 
 }
