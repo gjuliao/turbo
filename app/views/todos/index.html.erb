@@ -6,11 +6,11 @@
     <%= render "form", todo: Todo.new %>
 
 
-    <div id="todos" class="mt-4">
     <h1>Todos</h1>
-      <% @todos.each do |todo| %>
-        <%= render todo %>
-      <% end %>
+    
+        <div id="todos" class="mt-4">
+        <%= render @todos %>
+     
     </div>
   </div>
 
