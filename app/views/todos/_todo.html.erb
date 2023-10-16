@@ -1,7 +1,19 @@
 <div id="<%= "#{dom_id(todo)}_item" %>">
 
   <%= turbo_frame_tag dom_id(todo) do %>
-    <p class="mr-4">Todo:<%= link_to todo.title, edit_todo_path(todo) %></p>
+
+    <div class="d-flex justify-content-between">
+      <p class="mr-4"><%= link_to todo.title, edit_todo_path(todo), class: "d-flex #{'text-decoration-line-through text-muted' if todo.complete?}"  %></p>
+
+      <div class="d-flex justify-content-between">
+        <% if todo.complete? %>
+          <%= button_to "Mark Incomplete", todo_path(todo, todo: { status: 'incomplete' }), method: :patch, class:"btn"%>
+        <% else %>
+          <%= button_to "Mark Complete", todo_path(todo, todo: { status: 'complete' }), method: :patch, class:"btn"%>
+        <% end %>
+      </div>
+      <%= button_to "delete", todo_path(todo), method: :delete %>
+    </div>
   <% end %>
 
 </div>
