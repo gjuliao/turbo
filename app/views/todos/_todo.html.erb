@@ -1,12 +1,7 @@
-<div id="<%= dom_id todo %>">
-  <p>
-    <strong>Title:</strong>
-    <%= todo.title %>
-  </p>
+<div id="<%= "#{dom_id(todo)}_item" %>">
 
-  <p>
-    <strong>Status:</strong>
-    <%= todo.status %>
-  </p>
+  <%= turbo_frame_tag dom_id(todo) do %>
+    <p class="mr-4">Todo:<%= link_to todo.title, edit_todo_path(todo) %></p>
+  <% end %>
 
 </div>
