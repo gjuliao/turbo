@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="container">
+
+  <div class="mx-auto w-50">
+    <%= render "form", todo: Todo.new %>
+
+
+    <h1>Todos</h1>
+        <div id="todos" class="mt-4">
+        <%= render @todos %>
+     
+    </div>
+  </div>
+
+</div>
